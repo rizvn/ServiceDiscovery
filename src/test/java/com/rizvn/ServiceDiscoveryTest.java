@@ -87,4 +87,23 @@ public class ServiceDiscoveryTest {
     Assert.assertEquals(0, services.size());
   }
 
+  @Test
+  public void testScheduledUpdate() throws Exception
+  {
+    ServiceDiscovery.Service service;
+    serviceDiscovery.start();
+
+    Thread.sleep(11000);
+    service = serviceDiscovery.findByName("ABC");
+    Assert.assertNotNull(service);
+
+    Thread.sleep(11000);
+    service = serviceDiscovery.findByName("ABC");
+    Assert.assertNotNull(service);
+
+  }
+
+
+
+
 }
